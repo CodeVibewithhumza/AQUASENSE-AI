@@ -3,7 +3,7 @@
 **Project Title:** Intelligent Water Quality Assessment and Potability Prediction Using Explainable Machine Learning  
 **Product Name:** AquaSense AI  
 **System Type:** Full-Stack Machine Learning & Explainable AI (XAI) Web Platform  
-**Developer:** Humza — Founder & CEO, NexSham Technologies  
+**Developer:** Humza — CodeVibe with Humza  
 **Architecture:** Asynchronous FastAPI Backend + Vanilla HTML5/CSS3/JS Single-Page Web Dashboard + SQLite Database + Scikit-Learn / XGBoost / SHAP / LIME Engine  
 
 ---
@@ -641,4 +641,4 @@ The application will initialize database tables, preload models into memory, and
 - **NTU (Nephelometric Turbidity Units):** Standard optical measurement unit for fluid cloudiness.
 
 ---
-*Documentation Reference Manual | AquaSense AI | Humza (NexSham Technologies)*
+*Documentation Reference Manual | AquaSense AI | Humza (CodeVibe with Humza)*

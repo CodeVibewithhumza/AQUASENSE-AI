@@ -54,7 +54,7 @@ def code_cell(source: str):
 cells_01 = [
     markdown_cell("""# 💧 AquaSense AI — 01: Exploratory Data Analysis (EDA)
 **Project:** Intelligent Water Quality Assessment and Potability Prediction Using Explainable Machine Learning  
-**Author:** Humza | NexSham Technologies  
+**Author:** Humza | CodeVibe with Humza  
 
 ### Overview:
 In this notebook, we perform a deep exploratory analysis on the **Water Potability Dataset** (3,276 samples across 9 physicochemical parameters and 1 binary potability label).

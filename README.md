@@ -156,5 +156,5 @@ AQUASENSE/
 ---
 
 ## 📄 7. License & Credits
-Developed by **Humza** (Founder & CEO, NexSham Technologies).  
+Developed by **Humza** (CodeVibe with Humza).  
 Distributed under the **MIT License**.
