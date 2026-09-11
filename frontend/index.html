@@ -22,10 +22,16 @@
 
   <div class="app-wrapper">
     
+    <!-- Sidebar Backdrop Overlay (Mobile/Tablet) -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
     <!-- ========================================================================= -->
-    <!-- LEFT SIDEBAR NAVIGATION                                                   -->
+    <!-- LEFT SIDEBAR NAVIGATION (RESPONSIVE OFF-CANVAS DRAWER)                     -->
     <!-- ========================================================================= -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+      
+      <!-- Mobile Close Button -->
+      <button class="sidebar-close-btn" id="sidebar-close-btn" aria-label="Close navigation menu" title="Close">&times;</button>
       
       <div class="sidebar-top">
         <!-- Logo & Branding -->
@@ -82,10 +88,19 @@
       
       <!-- Top Header Bar -->
       <header class="top-header">
-        <div class="header-left">
-          <div class="welcome-tag">WELCOME TO</div>
-          <h1 class="main-title">AquaSense <span>AI</span></h1>
-          <div class="main-subtitle">Intelligent Water Quality Assessment & Potability Prediction</div>
+        <div class="header-left-wrap">
+          <!-- Animated Hamburger Menu Button for Mobile & Tablet -->
+          <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu" title="Menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          
+          <div class="header-left">
+            <div class="welcome-tag">WELCOME TO</div>
+            <h1 class="main-title">AquaSense <span>AI</span></h1>
+            <div class="main-subtitle">Intelligent Water Quality Assessment & Potability Prediction</div>
+          </div>
         </div>
 
         <div class="header-right">
@@ -96,7 +111,7 @@
               <span id="live-date-str">Sep 9, 2026 &bull; Tuesday</span>
             </div>
           </div>
-          <div style="text-align: right; margin-top: 4px;">
+          <div class="header-slogan-wrap">
             <div class="header-slogan">Every Drop Matters</div>
             <div class="header-slogan-sub">AI for a Safer, Healthier World</div>
           </div>

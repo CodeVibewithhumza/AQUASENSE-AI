@@ -24,6 +24,7 @@ const WHO_GUIDELINES = {
 
 // DOM Initializer
 document.addEventListener('DOMContentLoaded', () => {
+  initMobileMenu();
   initTabs();
   initDateDisplay();
   initSliders();
@@ -47,6 +48,69 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+/**
+ * Responsive Mobile Drawer & Hamburger Menu Controller
+ */
+function initMobileMenu() {
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  const closeBtn = document.getElementById('sidebar-close-btn');
+
+  function openSidebar() {
+    if (sidebar) sidebar.classList.add('open');
+    if (overlay) overlay.classList.add('active');
+    if (hamburgerBtn) hamburgerBtn.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSidebar() {
+    if (sidebar) sidebar.classList.remove('open');
+    if (overlay) overlay.classList.remove('active');
+    if (hamburgerBtn) hamburgerBtn.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (sidebar && sidebar.classList.contains('open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeSidebar();
+    });
+  }
+
+  if (overlay) {
+    overlay.addEventListener('click', closeSidebar);
+  }
+
+  // Close with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sidebar && sidebar.classList.contains('open')) {
+      closeSidebar();
+    }
+  });
+
+  // Attach close handler to tab buttons so switching tabs automatically closes drawer
+  const tabBtns = document.querySelectorAll('.sidebar-nav .nav-item');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (window.innerWidth <= 1024) {
+        closeSidebar();
+      }
+    });
+  });
+}
 
 /**
  * Live Date Formatter
@@ -99,6 +163,15 @@ function switchTab(targetId) {
       panel.classList.remove('active');
     }
   });
+
+  // Auto-close mobile drawer if open
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  if (sidebar) sidebar.classList.remove('open');
+  if (overlay) overlay.classList.remove('active');
+  if (hamburgerBtn) hamburgerBtn.classList.remove('active');
+  document.body.style.overflow = '';
 
   // Lazy refresh for charts when tab is activated
   if (targetId === 'tab-dashboard' || targetId === 'tab-explorer') loadDataExplorer();
