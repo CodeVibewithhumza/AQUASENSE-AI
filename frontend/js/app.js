@@ -24,6 +24,7 @@ const WHO_GUIDELINES = {
 
 // DOM Initializer
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initMobileMenu();
   initTabs();
   initDateDisplay();
@@ -48,6 +49,64 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+/**
+ * Dark / Light Theme Controller & LocalStorage Persistence
+ */
+function initThemeToggle() {
+  const toggleBtn = document.getElementById('theme-toggle');
+  
+  // 1. Check local storage or system color scheme preference
+  const savedTheme = localStorage.getItem('aquasense_theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+  applyTheme(initialTheme);
+
+  // 2. Click listener for the theme toggle button
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const isCurrentDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const nextTheme = isCurrentDark ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      localStorage.setItem('aquasense_theme', nextTheme);
+    });
+  }
+}
+
+function applyTheme(theme) {
+  const toggleBtn = document.getElementById('theme-toggle');
+  if (theme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    if (toggleBtn) {
+      toggleBtn.textContent = '🌙';
+      toggleBtn.title = 'Switch to Light Theme';
+      toggleBtn.setAttribute('aria-label', 'Switch to Light Theme');
+    }
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    if (toggleBtn) {
+      toggleBtn.textContent = '☀️';
+      toggleBtn.title = 'Switch to Dark Theme';
+      toggleBtn.setAttribute('aria-label', 'Switch to Dark Theme');
+    }
+  }
+
+  // Update Plotly consistency heatmap if initialized
+  const heatmapEl = document.getElementById('chart-consistency-heatmap');
+  if (heatmapEl && heatmapEl.data) {
+    try {
+      const isDark = theme === 'dark';
+      Plotly.relayout(heatmapEl, {
+        'paper_bgcolor': isDark ? '#132238' : '#FFFFFF',
+        'plot_bgcolor': isDark ? '#132238' : '#FFFFFF',
+        'font.color': isDark ? '#F0F6FC' : '#12283E'
+      });
+    } catch (err) {
+      // Ignored if Plotly not ready yet
+    }
+  }
+}
 
 /**
  * Responsive Mobile Drawer & Hamburger Menu Controller
