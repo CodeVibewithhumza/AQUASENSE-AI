@@ -1,3 +1,13 @@
+---
+title: AquaSense AI
+emoji: 💧
+colorFrom: blue
+colorTo: cyan
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # 💧 AquaSense AI
 
 > **Intelligent Water Quality Assessment and Potability Prediction Using Explainable Machine Learning**

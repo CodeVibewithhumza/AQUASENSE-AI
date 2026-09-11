@@ -1,0 +1,10 @@
+artifact_location: file:F:/AQUASENSE/mlruns/882326144660269548/models/m-198e2525c8dd4ce8b422d561efd7fbca/artifacts
+creation_timestamp: 1789040187564
+experiment_id: '882326144660269548'
+last_updated_timestamp: 1789040203693
+model_id: m-198e2525c8dd4ce8b422d561efd7fbca
+model_type: null
+name: decision_tree
+source_run_id: 86cf3b3d71ee4fcf819f22e580afcbb6
+status: 2
+status_message: null

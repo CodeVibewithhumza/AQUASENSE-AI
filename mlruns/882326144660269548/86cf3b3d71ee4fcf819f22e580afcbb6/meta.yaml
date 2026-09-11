@@ -1,0 +1,14 @@
+artifact_uri: file:F:/AQUASENSE/mlruns/882326144660269548/86cf3b3d71ee4fcf819f22e580afcbb6/artifacts
+end_time: 1789040203718
+entry_point_name: ''
+experiment_id: '882326144660269548'
+lifecycle_stage: active
+run_id: 86cf3b3d71ee4fcf819f22e580afcbb6
+run_name: decision_tree
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1789040187170
+status: 3
+tags: []
+user_id: Win 11

@@ -1,0 +1,14 @@
+artifact_uri: file:F:/AQUASENSE/mlruns/882326144660269548/8345d455ea6744c88c397128153dab6d/artifacts
+end_time: 1789040187161
+entry_point_name: ''
+experiment_id: '882326144660269548'
+lifecycle_stage: active
+run_id: 8345d455ea6744c88c397128153dab6d
+run_name: logistic_regression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1789040146560
+status: 3
+tags: []
+user_id: Win 11

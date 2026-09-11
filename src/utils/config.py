@@ -43,6 +43,7 @@ class Settings(BaseSettings):
     CV_FOLDS: int = 5
 
 
+os.environ["MLFLOW_ALLOW_FILE_STORE"] = "true"
 settings = Settings()
 
 # Ensure critical runtime directories exist

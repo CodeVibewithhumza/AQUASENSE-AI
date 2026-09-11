@@ -1,0 +1,23 @@
+artifact_path: file:F:/AQUASENSE/mlruns/882326144660269548/models/m-198e2525c8dd4ce8b422d561efd7fbca/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.skops
+    predict_fn: predict
+    python_version: 3.14.6
+  sklearn:
+    code: null
+    pickled_model: model.skops
+    serialization_format: skops
+    sklearn_version: 1.9.0
+    skops_trusted_types: null
+mlflow_version: 3.16.0
+model_id: m-198e2525c8dd4ce8b422d561efd7fbca
+model_size_bytes: 39148
+model_uuid: m-198e2525c8dd4ce8b422d561efd7fbca
+prompts: null
+run_id: 86cf3b3d71ee4fcf819f22e580afcbb6
+utc_time_created: '2026-09-10 11:36:27.658542'

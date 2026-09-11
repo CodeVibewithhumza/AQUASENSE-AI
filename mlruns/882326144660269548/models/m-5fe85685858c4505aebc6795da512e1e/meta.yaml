@@ -1,0 +1,10 @@
+artifact_location: file:F:/AQUASENSE/mlruns/882326144660269548/models/m-5fe85685858c4505aebc6795da512e1e/artifacts
+creation_timestamp: 1789040232295
+experiment_id: '882326144660269548'
+last_updated_timestamp: 1789040247404
+model_id: m-5fe85685858c4505aebc6795da512e1e
+model_type: null
+name: svm
+source_run_id: e5c7f885b92c40cebf39cfd236603004
+status: 2
+status_message: null

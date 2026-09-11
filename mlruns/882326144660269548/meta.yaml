@@ -1,0 +1,9 @@
+artifact_location: file:F:/AQUASENSE/mlruns/882326144660269548
+creation_time: 1789040131573
+effective_trace_archival_retention: null
+experiment_id: '882326144660269548'
+last_update_time: 1789040131573
+lifecycle_stage: active
+name: AquaSense_Water_Quality
+trace_location: null
+workspace: default

@@ -1,5 +1,6 @@
 """Model training pipeline with 5 classification models and automated MLflow tracking."""
 import os
+os.environ["MLFLOW_ALLOW_FILE_STORE"] = "true"
 import joblib
 import numpy as np
 import pandas as pd
@@ -124,9 +125,11 @@ class ModelTrainer:
         name: str,
         X_train: pd.DataFrame,
         y_train: pd.Series,
+        X_test: Optional[pd.DataFrame] = None,
+        y_test: Optional[pd.Series] = None,
         use_mlflow: bool = False
     ) -> Any:
-        """Trains a single model by name."""
+        """Trains a single model by name and logs parameters and evaluation metrics to MLflow."""
         if name not in self.models:
             raise ValueError(f"Unknown model name: '{name}'. Available: {list(self.models.keys())}")
 
@@ -142,6 +145,17 @@ class ModelTrainer:
                     logger.debug(f"Could not log all params for {name}: {e}")
 
                 model.fit(X_train, y_train)
+
+                # Log cross validation metrics if available
+                if name in self.cv_results:
+                    mlflow.log_metrics(self.cv_results[name])
+
+                # Log test metrics if X_test and y_test are provided
+                if X_test is not None and y_test is not None:
+                    from src.models.evaluator import ModelEvaluator
+                    evaluator = ModelEvaluator()
+                    metrics = evaluator.evaluate_single(model, X_test, y_test)
+                    mlflow.log_metrics(metrics)
 
                 try:
                     mlflow.sklearn.log_model(model, name)
@@ -159,13 +173,15 @@ class ModelTrainer:
         self,
         X_train: pd.DataFrame,
         y_train: pd.Series,
+        X_test: Optional[pd.DataFrame] = None,
+        y_test: Optional[pd.Series] = None,
         use_mlflow: bool = True
     ) -> Dict[str, Any]:
-        """Trains all 5 models sequentially and logs them to MLflow."""
+        """Trains all 5 models sequentially, evaluates them, and logs them to MLflow."""
         logger.info(f"Training all {len(self.models)} models on {X_train.shape[0]} samples...")
 
         for name in self.models.keys():
-            self.train_single(name, X_train, y_train, use_mlflow=use_mlflow)
+            self.train_single(name, X_train, y_train, X_test=X_test, y_test=y_test, use_mlflow=use_mlflow)
 
         logger.info("All 5 models trained successfully.")
         return self.trained_models

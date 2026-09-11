@@ -1,0 +1,10 @@
+artifact_location: file:F:/AQUASENSE/mlruns/882326144660269548/models/m-f29697e6b94545e8996f3186a396d6c9/artifacts
+creation_timestamp: 1789040205161
+experiment_id: '882326144660269548'
+last_updated_timestamp: 1789040226456
+model_id: m-f29697e6b94545e8996f3186a396d6c9
+model_type: null
+name: random_forest
+source_run_id: 60abaa9d51564f29a6c39e273ee5de5c
+status: 2
+status_message: null

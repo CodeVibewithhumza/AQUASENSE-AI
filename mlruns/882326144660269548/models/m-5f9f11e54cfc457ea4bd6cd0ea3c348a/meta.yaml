@@ -1,0 +1,10 @@
+artifact_location: file:F:/AQUASENSE/mlruns/882326144660269548/models/m-5f9f11e54cfc457ea4bd6cd0ea3c348a/artifacts
+creation_timestamp: 1789040228896
+experiment_id: '882326144660269548'
+last_updated_timestamp: 1789040229314
+model_id: m-5f9f11e54cfc457ea4bd6cd0ea3c348a
+model_type: null
+name: xgboost
+source_run_id: ba438273be6b4ce9b4873ef117324099
+status: 3
+status_message: null

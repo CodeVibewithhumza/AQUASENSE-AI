@@ -1,0 +1,14 @@
+artifact_uri: file:F:/AQUASENSE/mlruns/882326144660269548/60abaa9d51564f29a6c39e273ee5de5c/artifacts
+end_time: 1789040226492
+entry_point_name: ''
+experiment_id: '882326144660269548'
+lifecycle_stage: active
+run_id: 60abaa9d51564f29a6c39e273ee5de5c
+run_name: random_forest
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1789040203730
+status: 3
+tags: []
+user_id: Win 11

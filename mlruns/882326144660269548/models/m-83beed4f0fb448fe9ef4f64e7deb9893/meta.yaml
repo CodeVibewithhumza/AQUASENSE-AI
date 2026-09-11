@@ -1,0 +1,10 @@
+artifact_location: file:F:/AQUASENSE/mlruns/882326144660269548/models/m-83beed4f0fb448fe9ef4f64e7deb9893/artifacts
+creation_timestamp: 1789040147004
+experiment_id: '882326144660269548'
+last_updated_timestamp: 1789040187135
+model_id: m-83beed4f0fb448fe9ef4f64e7deb9893
+model_type: null
+name: logistic_regression
+source_run_id: 8345d455ea6744c88c397128153dab6d
+status: 2
+status_message: null
