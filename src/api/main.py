@@ -257,7 +257,7 @@ def get_consistency_data(request: Request):
     return consistency
 
 
-@app.get("/health", response_model=HealthResponse, status_code=status.HTTP_200_OK, tags=["System"])
+@app.api_route("/health", methods=["GET", "HEAD"], response_model=HealthResponse, status_code=status.HTTP_200_OK, tags=["System"])
 def health_check():
     """System health check and runtime model inventory."""
     models_loaded = getattr(app.state, "models", {})
@@ -277,7 +277,7 @@ if FRONTEND_DIR.exists():
     app.mount("/static", StaticFiles(directory=str(FRONTEND_DIR)), name="static")
 
 
-@app.get("/", response_class=FileResponse, tags=["Web App"])
+@app.api_route("/", methods=["GET", "HEAD"], tags=["Web App"])
 def serve_index():
     """Serves the AquaSense AI Web Application Single Page Interface."""
     index_file = FRONTEND_DIR / "index.html"
